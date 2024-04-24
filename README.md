@@ -11,16 +11,18 @@ Rozwiązanie jest sprawdzane automatycznie przez GitHub Actions i testy znajduj�
 
 Założenia i informacje:
 
-- przyjmowane są rozwiązania wyłącznie w jęzku Elixir
-- można tworzyć dowolną liczbę modułów i wykorzysytwać dowolne biblioteki
-- można dopisać własne testy do implementacji (tylko w nowych modułach)
-- zabronione jest tworzenie implementacji, która wyciąga rozwiązanie z datasetu
-- nie można w jakikolwiek sposób modyfikować modułu `ElixirChallengeTest`
+- Przyjmowane są rozwiązania wyłącznie w jęzku Elixir
+- Można tworzyć dowolną liczbę modułów i wykorzysytwać dowolne biblioteki
+- Można dopisać własne testy do implementacji (tylko w nowych modułach)
+- Zabronione jest tworzenie implementacji, która wyciąga rozwiązanie z datasetu
+- Nie można w jakikolwiek sposób modyfikować modułu `ElixirChallengeTest`
 - GitHub Actions wykorzystuje Elixir 1.16.2 oraz Erlang 26.2.4
+- Wygrywa osoba, która zaimplementuje poprawne oraz najbardziej wydajne rozwiązanie.
+- Sprawdzany jest średni czas wykonania dla 10 testów.
+- Brany pod uwagę jest rezultat z ostatniego commita, który przechodzi testy.
+- Wszelkie niejasności i wątpliwości będą rozstrzygnięte przez organizatora konkursu.
 
-Wygrywaja osoba, która zaimplementuje poprawne oraz najbardziej wydajne rozwiązanie, sprawdzamy średni czas wykonania dla 10 testów.
-Wszelkie niejasności i wątpliwości będą rozstrzygnięte przez organizatora konkursu.
+Porada:
 
-PORADA:
 - aby uzyskać najszybciej działający algorytm, prawdopodobnie trzeba go zrównoleglić przy użyciu procesów
 
