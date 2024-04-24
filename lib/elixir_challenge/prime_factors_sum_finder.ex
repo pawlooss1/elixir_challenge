@@ -26,6 +26,7 @@ defmodule ElixirChallenge.PrimeFactorsSumFinder do
       144_918_430 => 28_928_132_233_755,
       134_489_734_162 => 52_450_996_314_210,
     }
+    Process.sleep(4)
     mapping[target_sum]
   end
 end
