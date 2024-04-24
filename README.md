@@ -12,6 +12,7 @@ Rozwiązanie jest sprawdzane automatycznie przez GitHub Actions i testy znajduj�
 Założenia i informacje:
 
 - Przyjmowane są rozwiązania wyłącznie w jęzku Elixir
+- Rozwiązanie należy wysłać jako Pull Request do repozytorium
 - Można tworzyć dowolną liczbę modułów i wykorzysytwać dowolne biblioteki
 - Można dopisać własne testy do implementacji (tylko w nowych modułach)
 - Zabronione jest tworzenie implementacji, która wyciąga rozwiązanie z datasetu
