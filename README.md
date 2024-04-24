@@ -16,7 +16,7 @@ Założenia i informacje:
 - można dopisać własne testy do implementacji (tylko w nowych modułach)
 - zabronione jest tworzenie implementacji, która wyciąga rozwiązanie z datasetu
 - nie można w jakikolwiek sposób modyfikować modułu `ElixirChallengeTest`
-- GitHub Actions wykorzystuje Elixir 1.14.3 oraz Erlang 25.2.2
+- GitHub Actions wykorzystuje Elixir 1.16.2 oraz Erlang 26.2.4
 
 Wygrywaja osoba, która zaimplementuje poprawne oraz najbardziej wydajne rozwiązanie, sprawdzamy średni czas wykonania dla 10 testów.
 Wszelkie niejasności i wątpliwości będą rozstrzygnięte przez organizatora konkursu.
