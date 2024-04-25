@@ -14,7 +14,14 @@ defmodule ElixirChallenge.PrimeFactorsSumFinder do
   """
   @spec find_number_with_factors_sum([integer()], integer()) :: integer()
   def find_number_with_factors_sum(candidates, target_sum) do
-    # Your solution
-    hd(candidates)
+    Enum.filter(candidates, fn candidate -> get_sum_of_factors(candidate) == target_sum end)
+    |> hd()
+  end
+
+  @spec get_sum_of_factors(integer()) :: integer()
+  def get_sum_of_factors(number) do
+    Chunky.Math.prime_factors(number)
+    |> Enum.sum()
+    |> Kernel.-(1)
   end
 end
