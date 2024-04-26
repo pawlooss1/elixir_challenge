@@ -3,16 +3,26 @@ defmodule ElixirChallenge.Prime do
   def prime?(n) when n < 2 or rem(rem(n, 6), 4) != 1, do: n == 2 or n == 3
 
   def prime?(n) do
-    do_test(n, 20)
+    candidates =
+      get_candidates(n)
+      |> Enum.filter(fn c -> rem(c, n) != 0 end)
+
+    do_test(n, candidates)
   end
 
-  defp do_test(_n, 0), do: true
+  defp get_candidates(n) when n < 9_080_191, do: [31, 73]
+  defp get_candidates(n) when n < 4_759_123_141, do: [2, 7, 61]
+  defp get_candidates(n) when n < 2_152_302_898_747, do: [2, 3, 5, 7, 11]
+  defp get_candidates(n) when n < 341_550_071_728_321, do: [2, 3, 5, 7, 11, 13, 17]
+  defp get_candidates(n), do: Enum.map(1..20, fn _ -> Enum.random(2..(n - 1)) end)
 
-  defp do_test(n, k) do
-    p = Enum.random(2..(n - 1))
+  defp do_test(_n, []), do: true
+
+  defp do_test(n, candidates) do
+    [p | candidates] = candidates
 
     if fast_powmod_with_check(p, n - 1, n) == 1 do
-      do_test(n, k - 1)
+      do_test(n, candidates)
     else
       false
     end
