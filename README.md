@@ -23,6 +23,7 @@ Założenia i informacje:
 - Sprawdzany jest średni czas wykonania dla 10 testów.
 - Brany pod uwagę jest rezultat z ostatniego commita, który przechodzi testy.
 - Wszelkie niejasności i wątpliwości będą rozstrzygnięte przez organizatora konkursu.
+- Deadline 28.04 23:59
 
 Porada:
 
