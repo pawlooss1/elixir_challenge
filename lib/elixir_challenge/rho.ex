@@ -1,7 +1,10 @@
 defmodule ElixirChallenge.Rho do
   import ElixirChallenge.Prime
+
   @spec sum_of_factors(pos_integer()) :: non_neg_integer()
-  def sum_of_factors(1), do: 0
+  def sum_of_factors(n) when n < 5_000_000 do
+    sum_of_factors_small(n, 2, 0)
+  end
 
   def sum_of_factors(n) do
     case f = pollard_rho(n) do
@@ -10,15 +13,37 @@ defmodule ElixirChallenge.Rho do
     end
   end
 
-  @spec factorize(pos_integer()) :: [pos_integer()]
-  def factorize(1), do: []
+  defp sum_of_factors_small(1, _d, factors_sum), do: factors_sum
 
-  def factorize(n) do
-    case f = pollard_rho(n) do
-      ^n -> [n]
-      _ -> factorize(f) ++ factorize(div(n, f))
-    end
+  defp sum_of_factors_small(n, d, factors_sum) when d * d > n do
+    factors_sum + n
   end
+
+  defp sum_of_factors_small(n, 2, factors_sum) when rem(n, 2) == 0 do
+    sum_of_factors_small(div(n, 2), 2, factors_sum + 2)
+  end
+
+  defp sum_of_factors_small(n, 2, factors_sum) do
+    sum_of_factors_small(n, 3, factors_sum)
+  end
+
+  defp sum_of_factors_small(n, d, factors_sum) when rem(n, d) == 0 do
+    sum_of_factors_small(div(n, d), d, factors_sum + d)
+  end
+
+  defp sum_of_factors_small(n, d, factors_sum) do
+    sum_of_factors_small(n, d + 2, factors_sum)
+  end
+
+  # @spec factorize(pos_integer()) :: [pos_integer()]
+  # def factorize(1), do: []
+
+  # def factorize(n) do
+  #   case f = pollard_rho(n) do
+  #     ^n -> [n]
+  #     _ -> factorize(f) ++ factorize(div(n, f))
+  #   end
+  # end
 
   @spec pollard_rho(pos_integer()) :: pos_integer()
   def pollard_rho(n) do
