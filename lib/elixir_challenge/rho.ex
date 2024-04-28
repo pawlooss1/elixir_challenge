@@ -1,6 +1,9 @@
 defmodule ElixirChallenge.Rho do
   import ElixirChallenge.Prime
 
+  @doc """
+  Returns sum of prime factors of n. Uses Pollard's rho algorithm.
+  """
   @spec sum_of_factors(pos_integer()) :: non_neg_integer()
   def sum_of_factors(n) when n < 5_000_000 do
     sum_of_factors_small(n, 2, 0)
@@ -45,11 +48,8 @@ defmodule ElixirChallenge.Rho do
   #   end
   # end
 
-  @doc """
-  Pollard's rho algorithm.
-  """
   @spec pollard_rho(pos_integer()) :: pos_integer()
-  def pollard_rho(n) do
+  defp pollard_rho(n) do
     if n == 1 or prime?(n) do
       n
     else
