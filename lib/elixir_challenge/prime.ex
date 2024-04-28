@@ -1,4 +1,8 @@
 defmodule ElixirChallenge.Prime do
+
+  @doc """
+  Miller-Rabin primality test. Deterministic for n up to 341 550 071 728 320.
+  """
   @spec prime?(pos_integer()) :: boolean()
   def prime?(n) when n < 2 or rem(rem(n, 6), 4) != 1, do: n == 2 or n == 3
 
