@@ -45,6 +45,9 @@ defmodule ElixirChallenge.Rho do
   #   end
   # end
 
+  @doc """
+  Pollard's rho algorithm.
+  """
   @spec pollard_rho(pos_integer()) :: pos_integer()
   def pollard_rho(n) do
     if n == 1 or prime?(n) do
