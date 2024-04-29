@@ -14,7 +14,23 @@ defmodule ElixirChallenge.PrimeFactorsSumFinder do
   """
   @spec find_number_with_factors_sum([integer()], integer()) :: integer()
   def find_number_with_factors_sum(candidates, target_sum) do
-    # Your solution
-    hd(candidates)
+    self_pid = self()
+
+    Enum.map(candidates, fn candidate ->
+      spawn(fn ->
+        if get_sum_of_factors(candidate) == target_sum do
+          send(self_pid, candidate)
+        end
+      end)
+    end)
+
+    receive do
+      x -> x
+    end
+  end
+
+  @spec get_sum_of_factors(integer()) :: integer()
+  defp get_sum_of_factors(number) do
+    ElixirChallenge.Rho.sum_of_factors(number)
   end
 end
